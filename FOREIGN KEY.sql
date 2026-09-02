@@ -1,52 +1,67 @@
-﻿FK__Availabil__Recor__1E3A7A34	FOREIGN KEY	AvailabilityLogs.RecordID	 ---> [FK] 	AvailabilityRecords.RecordID
-FK__Availabil__Targe__1A69E950	FOREIGN KEY	AvailabilityRecords.TargetID	 ---> [FK] 	AvailabilityTargets.TargetID
-FK__CapacityL__Recor__30592A6F	FOREIGN KEY	CapacityLogs.RecordID	 ---> [FK] 	CapacityRecords.RecordID
-FK__CapacityR__Targe__2C88998B	FOREIGN KEY	CapacityRecords.TargetID	 ---> [FK] 	CapacityTargets.TargetID
-FK__ChangeApp__Reque__43A1090D	FOREIGN KEY	ChangeApprovals.RequestID	 ---> [FK] 	ChangeRequests.RequestID
-FK__ChangeLog__Reque__4865BE2A	FOREIGN KEY	ChangeLogs.RequestID	 ---> [FK] 	ChangeRequests.RequestID
+FK__Availabil__Recor__1E3A7A34	FOREIGN KEY	AvailabilityLogs.RecordID	 ---> [FK] 	AvailabilityRecords.RecordID
+--FK__Availabil__Targe__1A69E950	FOREIGN KEY	AvailabilityRecords.TargetID	 ---> [FK] 	AvailabilityTargets.TargetID
+--FK__CapacityL__Recor__30592A6F	FOREIGN KEY	CapacityLogs.RecordID	 ---> [FK] 	CapacityRecords.RecordID
+--FK__CapacityR__Targe__2C88998B	FOREIGN KEY	CapacityRecords.TargetID	 ---> [FK] 	CapacityTargets.TargetID
+--FK__ChangeApp__Reque__43A1090D	FOREIGN KEY	ChangeApprovals.RequestID	 ---> [FK] 	ChangeRequests.RequestID
+--FK__ChangeLog__Reque__4865BE2A	FOREIGN KEY	ChangeLogs.RequestID	 ---> [FK] 	ChangeRequests.RequestID
 FK__ConfigCha__Confi__762C88DA	FOREIGN KEY	ConfigChanges.ConfigID	 ---> [FK] 	ConfigItems.ConfigID
 FK__ConfigLog__Confi__7AF13DF7	FOREIGN KEY	ConfigLogs.ConfigID	 ---> [FK] 	ConfigItems.ConfigID
-FK__Continuit__PlanI__3DB3258D	FOREIGN KEY	ContinuityTests.PlanID	 ---> [FK] 	ContinuityPlans.PlanID
-FK__Continuit__PlanI__4277DAAA	FOREIGN KEY	ContinuityLogs.PlanID	 ---> [FK] 	ContinuityPlans.PlanID
+--FK__Continuit__PlanI__3DB3258D	FOREIGN KEY	ContinuityTests.PlanID	 ---> [FK] 	ContinuityPlans.PlanID
+--FK__Continuit__PlanI__4277DAAA	FOREIGN KEY	ContinuityLogs.PlanID	 ---> [FK] 	ContinuityPlans.PlanID
 FK__IncidentR__TypeI__251C81ED	FOREIGN KEY	IncidentReports.TypeID	 ---> [FK] 	IncidentTypes.TypeID
-FK__IncidentR__TypeI__251C81ED	FOREIGN KEY	IncidentReports.TypeID	 ---> [FK] 	IncidentTypes.TypeID
-FK__ProblemLo__Probl__69C6B1F5	FOREIGN KEY	ProblemLogs.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
-FK__ProblemLo__Probl__69C6B1F5	FOREIGN KEY	ProblemLogs.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
-FK__ProblemRe__Probl__54CB950F	FOREIGN KEY	ProblemRecords.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
-FK__ProblemRe__Probl__54CB950F	FOREIGN KEY	ProblemRecords.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
-FK__ProblemRe__Relat__55BFB948	FOREIGN KEY	ProblemRecords.RelatedIncidentID	 ---> [FK] 	IncidentReports.IncidentID
-FK__ProblemRe__Relat__55BFB948	FOREIGN KEY	ProblemRecords.RelatedIncidentID	 ---> [FK] 	IncidentReports.IncidentID
-FK__ReleaseDe__Relea__093F5D4E	FOREIGN KEY	ReleaseDeployments.ReleaseID	 ---> [FK] 	Releases.ReleaseID
+--FK__ProblemRe__Probl__54CB950F	FOREIGN KEY	ProblemRecords.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
+--FK__ProblemRe__Relat__55BFB948	FOREIGN KEY	ProblemRecords.RelatedIncidentID	 ---> [FK] 	IncidentReports.IncidentID
+--FK__ReleaseDe__Relea__093F5D4E	FOREIGN KEY	ReleaseDeployments.ReleaseID	 ---> [FK] 	Releases.ReleaseID
 FK__ReleaseLo__Relea__0D0FEE32	FOREIGN KEY	ReleaseLogs.ReleaseID	 ---> [FK] 	Releases.ReleaseID
-FK__ReportLog__Repor__76EBA2E9	FOREIGN KEY	ReportLogs.ReportID	 ---> [FK] 	Reports.ReportID
-FK__ReportRun__Repor__7226EDCC	FOREIGN KEY	ReportRuns.ReportID	 ---> [FK] 	Reports.ReportID
-FK__SupportTi__Categ__308E3499	FOREIGN KEY	SupportTickets.CategoryID	 ---> [FK] 	TicketCategories.CategoryID
-FK__TicketLog__Ticke__36470DEF	FOREIGN KEY	TicketLogs.TicketID	 ---> [FK] 	SupportTickets.TicketID
-FK__WalletTra__Walle__51BA1E3A	FOREIGN KEY	WalletTransactions.WalletID	 ---> [FK] 	DigitalWallets.WalletID
-FK_AuthenticationLogs_UserID	FOREIGN KEY	AuthenticationLogs.UserID	 ---> [FK] 	Users.UserID
+--FK__ReportLog__Repor__76EBA2E9	FOREIGN KEY	ReportLogs.ReportID	 ---> [FK] 	Reports.ReportID
+--FK__ReportRun__Repor__7226EDCC	FOREIGN KEY	ReportRuns.ReportID	 ---> [FK] 	Reports.ReportID
+--FK__SupportTi__Categ__308E3499	FOREIGN KEY	SupportTickets.CategoryID	 ---> [FK] 	TicketCategories.CategoryID
+--FK__TicketLog__Ticke__36470DEF	FOREIGN KEY	TicketLogs.TicketID	 ---> [FK] 	SupportTickets.TicketID
+--FK__WalletTra__Walle__51BA1E3A	FOREIGN KEY	WalletTransactions.WalletID	 ---> [FK] 	DigitalWallets.WalletID
 FK_AuthenticationLogs_UserID	FOREIGN KEY	AuthenticationLogs.UserID	 ---> [FK] 	Users.UserID
 FK_ForecastingHistory_ForecastingReports	FOREIGN KEY	ForecastingHistory.ForecastID	 ---> [FK] 	ForecastingReports.ForecastID
-FK_MerchantProductMapping_Merchants	FOREIGN KEY	MerchantProductMapping.MerchantID	 ---> [FK] 	Merchants.MerchantID
-FK_MerchantProductMapping_Merchants	FOREIGN KEY	MerchantProductMapping.MerchantID	 ---> [FK] 	Merchants.MerchantID
-FK_MerchantProductMapping_Merchants	FOREIGN KEY	MerchantProductMapping.MerchantID	 ---> [FK] 	Merchants.MerchantID
-FK_MerchantProductMapping_Merchants	FOREIGN KEY	MerchantProductMapping.MerchantID	 ---> [FK] 	Merchants.MerchantID
-FK_Payments_Transactions	FOREIGN KEY	Payments.TransactionID	 ---> [FK] 	Transactions.TransactionID
-FK_Payments_Transactions	FOREIGN KEY	Payments.TransactionID	 ---> [FK] 	Transactions.TransactionID
+FK_MerchantProductMapping_Merchants	FOREIGN KEY	MerchantProductMapping.MerchantID	 ---> [FK] 	Merchants.MerchantID*/
 FK_Shipping_Transactions	FOREIGN KEY	Shipping.TransactionID	 ---> [FK] 	Transactions.TransactionID
-FK_Shipping_Transactions	FOREIGN KEY	Shipping.TransactionID	 ---> [FK] 	Transactions.TransactionID
-FK_Taxes_Transactions	FOREIGN KEY	Taxes.TransactionID	 ---> [FK] 	Transactions.TransactionID
-FK_Taxes_Transactions	FOREIGN KEY	Taxes.TransactionID	 ---> [FK] 	Transactions.TransactionID
-FK_TransactionItems_MerchantProductMapping	FOREIGN KEY	TransactionItems.MappingID	 ---> [FK] 	MerchantProductMapping.MappingID
-FK_TransactionItems_MerchantProductMapping	FOREIGN KEY	TransactionItems.MappingID	 ---> [FK] 	MerchantProductMapping.MappingID
-FK_TransactionItems_MerchantProductMapping	FOREIGN KEY	TransactionItems.MappingID	 ---> [FK] 	MerchantProductMapping.MappingID
-FK_TransactionItems_Products	FOREIGN KEY	TransactionItems.ProductID	 ---> [FK] 	Products.ProductID
-FK_TransactionItems_Products	FOREIGN KEY	TransactionItems.ProductID	 ---> [FK] 	Products.ProductID
-FK_TransactionItems_Products	FOREIGN KEY	TransactionItems.ProductID	 ---> [FK] 	Products.ProductID
-FK_TransactionItems_Products	FOREIGN KEY	TransactionItems.ProductID	 ---> [FK] 	Products.ProductID
-FK_TransactionItems_Transactions	FOREIGN KEY	TransactionItems.TransactionID	 ---> [FK] 	Transactions.TransactionID
-FK_TransactionItems_Transactions	FOREIGN KEY	TransactionItems.TransactionID	 ---> [FK] 	Transactions.TransactionID
+--FK_Taxes_Transactions	FOREIGN KEY	Taxes.TransactionID	 ---> [FK] 	Transactions.TransactionID
+--FK_TransactionItems_MerchantProductMapping	FOREIGN KEY	TransactionItems.MappingID	 ---> [FK] 	MerchantProductMapping.MappingID
+--FK_TransactionItems_Products	FOREIGN KEY	TransactionItems.ProductID	 ---> [FK] 	Products.ProductID
+--FK_TransactionItems_Transactions	FOREIGN KEY	TransactionItems.TransactionID	 ---> [FK] 	Transactions.TransactionID
 FK_UserSessions_UserID	FOREIGN KEY	UserSessions.UserID	 ---> [FK] 	Users.UserID
 FK_UserSessions_UserID	FOREIGN KEY	UserSessions.UserID	 ---> [FK] 	Users.UserID
 FK_UsersRoles_Role	FOREIGN KEY	UsersRoles.RoleID	 ---> [FK] 	Roles.RoleID
 FK_UsersRoles_User	FOREIGN KEY	UsersRoles.UserID	 ---> [FK] 	Users.UserID
 FK_UsersRoles_User	FOREIGN KEY	UsersRoles.UserID	 ---> [FK] 	Users.UserID
+
+/* NEW */
+/*8. Problem Logs*/
+FK_ProblemLogs_ProblemCatalog	FOREIGN KEY	ProblemLogs.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
+FK__ProblemRe__Probl__54CB950F	FOREIGN KEY	ProblemRecords.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
+
+/*7. Problem Logs*/
+FK_ProblemLogs_ProblemCatalog	FOREIGN KEY	ProblemLogs.ProblemID	 ---> [FK] 	ProblemCatalog.ProblemID
+/* 6. Forecasting */
+FK_ForecastingReports_Products	FOREIGN KEY	ForecastingReports / ProductID	 ---> [FK] 	Products / ProductID
+/* 4. Payments / Financial */
+FK_Refunds_Payments	FOREIGN KEY	Refunds.PaymentID	 ---> [FK] 	Payments.PaymentID
+/* 4. Cash on Delivery */
+FK_CashOnDelivery_Transactions	FOREIGN KEY	CashOnDelivery.TransactionID	 ---> [FK] 	Transactions.TransactionID
+
+
+FK_Taxes_Transactions	FOREIGN KEY	Taxes.TransactionID	 ---> [FK] 	Transactions.TransactionID
+FK_Shipping_Transactions	FOREIGN KEY	Shipping.TransactionID	 ---> [FK] 	Transactions.TransactionID
+FK_Payments_Transactions	FOREIGN KEY	Payments.TransactionID	 ---> [FK] 	Transactions.TransactionID
+FK_Invoices_Transactions	FOREIGN KEY	Invoices.TransactionID	 ---> [FK] 	Transactions.TransactionID
+FK_Transactions_CashOnDelivery	FOREIGN KEY	Transactions.CODID	 ---> [FK] 	CashOnDelivery.CashOnDelivery
+/* ملاحظة: FK_Transactions_CashOnDelivery  CODID تم تعريفه بأسم  FOREIGN KEY.sql و حاولت تفيير اسمة في SSMS 
+يجب اسقاط العلاقة و تغيير الاسم او الابقاء علي هذا*/
+
+FK_MT_Merchant	FOREIGN KEY	MerchantTransactions.MerchantID	 ---> [FK] 	Merchants.MerchantID
+FK_MT_Transaction	FOREIGN KEY	MerchantTransactions.TransactionID	 ---> [FK] 	Transactions.TransactionID
+/* تم انشاء جدول  MerchantTransactions  لتمثيل العلاقة many-to-many بين  Merchants و Transactions  و تحديد الدور Role لكل علاقة (Seller أو Buyer) */
+
+FK_TransactionItems_Transactions	FOREIGN KEY	TransactionItems.TransactionID	 ---> [FK] 	Transactions.TransactionID
+FK_TransactionItems_MerchantProductMapping	FOREIGN KEY	TransactionItems.MappingID	 ---> [FK] 	MerchantProductMapping.MappingID
+FK_TransactionItems_Products	FOREIGN KEY	TransactionItems.ProductID	 ---> [FK] 	Products.ProductID
+FK_Products_Categories	FOREIGN KEY	Products .CategoryID	 ---> [FK] 	Categories.CategoryID
+FK_Products_OwnerMerchant	FOREIGN KEY	Products .OwnerMerchantID	 ---> [FK] 	Merchants .MerchantID
+FK_MerchantProductMapping_Merchants	FOREIGN KEY	MerchantProductMapping.MerchantID	 ---> [FK] 	Merchants.MerchantID
