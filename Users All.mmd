@@ -1,0 +1,144 @@
+﻿/*
+
+erDiagram
+    Users {
+        int UserID PK
+        nvarchar UserName
+        nvarchar Email
+    }
+
+    UsersData {
+        int DataID PK
+        int UserID FK
+    }
+
+    UserSessions {
+        int SessionID PK
+        int UserID FK
+    }
+
+    AuthenticationLogs {
+        int LogID PK
+        int UserID FK
+    }
+
+    Roles {
+        int RoleID PK
+        nvarchar RoleName
+    }
+
+    UsersRoles {
+        int UserRoleID PK
+        int UserID FK
+        int RoleID FK
+    }
+
+    Merchants {
+        int MerchantID PK
+        nvarchar Name
+        nvarchar MerchantLevel
+        nvarchar MerchantType
+        nvarchar ContactInfo
+        bit IsActive
+        datetime CreatedAt
+        int SellerMerchantID FK
+        int BuyerMerchantID FK
+        int TransactionID FK
+    }
+
+    Products {
+        int ProductID PK
+        int OwnerMerchantID FK
+        int CategoryID FK
+    }
+
+    MerchantProductMapping {
+        int MappingID PK
+        int MerchantID FK
+        int ProductID FK
+    }
+
+    Transactions {
+        int TransactionID PK
+        datetime TransactionDate
+        decimal Amount
+    }
+
+    TransactionItems {
+        int TransactionItemID PK
+        int TransactionID FK
+        int ProductID FK
+        int MappingID FK
+    }
+
+    Payments {
+        int PaymentID PK
+        int TransactionID FK
+    }
+
+    Refunds {
+        int RefundID PK
+        int PaymentID FK
+    }
+
+    MerchantTransactions {
+        int MTID PK
+        int MerchantID FK
+        int TransactionID FK
+    }
+
+    Ledger {
+        int LedgerID PK
+        int TransactionID FK
+        decimal Amount
+    }
+
+    DigitalWallets {
+        int WalletID PK
+        int UserID FK
+        nvarchar WalletType
+        decimal Balance
+    }
+
+    WalletTransactions {
+        int WalletTransactionID PK
+        int WalletID FK
+        int TransactionID FK
+        decimal Amount
+        datetime CreatedAt
+    }
+
+    %% علاقات Users
+    Users ||--o{ UsersData : "has details"
+    Users ||--o{ UserSessions : "creates sessions"
+    Users ||--o{ AuthenticationLogs : "auth logs"
+    Users ||--o{ UsersRoles : "assigned"
+    Roles ||--o{ UsersRoles : "defines"
+
+    %% علاقات Merchants & Products
+    Merchants ||--o{ Products : "owns"
+    Merchants ||--o{ MerchantProductMapping : "offers"
+    Products ||--o{ MerchantProductMapping : "mapped"
+
+    %% علاقات Transactions
+    MerchantProductMapping ||--o{ TransactionItems : "used in"
+    Products ||--o{ TransactionItems : "appears in"
+    Transactions ||--o{ TransactionItems : "contains"
+    Transactions ||--o{ Payments : "generates"
+    Payments ||--o{ Refunds : "may refund"
+
+    %% علاقات MerchantTransactions & Ledger
+    Merchants ||--o{ MerchantTransactions : "participates"
+    Transactions ||--o{ MerchantTransactions : "includes"
+    Transactions ||--o{ Ledger : "has ledger entries"
+
+    %% علاقات Merchants ↔ Transactions
+    Transactions ||--o{ Merchants : "involved"
+    Merchants ||--o{ Merchants : "Seller"
+    Merchants ||--o{ Merchants : "Buyer"
+
+    %% علاقات Wallets
+    Users ||--o{ DigitalWallets : "owns wallets"
+    DigitalWallets ||--o{ WalletTransactions : "records transactions"
+    Transactions ||--o{ WalletTransactions : "linked"
+*/
