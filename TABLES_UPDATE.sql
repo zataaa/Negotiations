@@ -101,12 +101,23 @@ CREATE TABLE [dbo].[CapacityTargets] (
 -- Table: [dbo].[CashOnDelivery]
 -- =============================================
 CREATE TABLE [dbo].[CashOnDelivery] (
-    [CODID] int NOT NULL,
+    [CashOnDelivery] int NOT NULL,
     [PaymentID] int NULL,
     [DeliveryAddress] nvarchar(250) NOT NULL,
     [DeliveryDate] datetime NULL,
     [IsPaid] bit NULL,
-    [OrderID] int NOT NULL
+    [OrderID] int NOT NULL,
+    [TransactionID] int NULL
+);
+
+
+-- =============================================
+-- Table: [dbo].[Categories]
+-- =============================================
+CREATE TABLE [dbo].[Categories] (
+    [CategoryID] int NOT NULL,
+    [CategoryName] nvarchar(100) NOT NULL,
+    [Description] nvarchar(250) NULL
 );
 
 
@@ -297,7 +308,8 @@ CREATE TABLE [dbo].[Invoices] (
     [IssueDate] datetime NULL,
     [DueDate] datetime NULL,
     [Amount] decimal(18,2) NOT NULL,
-    [Status] nvarchar(50) NULL
+    [Status] nvarchar(50) NULL,
+    [TransactionID] int NULL
 );
 
 
@@ -311,7 +323,8 @@ CREATE TABLE [dbo].[Ledger] (
     [Amount] decimal(18,2) NOT NULL,
     [DebitCredit] nvarchar(10) NOT NULL,
     [TransactionDate] datetime NULL,
-    [Notes] nvarchar(250) NULL
+    [Notes] nvarchar(250) NULL,
+    [TransactionID] int NULL
 );
 
 
@@ -319,7 +332,6 @@ CREATE TABLE [dbo].[Ledger] (
 -- Table: [dbo].[MerchantProductMapping]
 -- =============================================
 CREATE TABLE [dbo].[MerchantProductMapping] (
-    [MappingID] int NOT NULL,
     [MerchantID] int NOT NULL,
     [ProductID] int NOT NULL,
     [SellingPrice] decimal(10,2) NOT NULL,
@@ -329,7 +341,8 @@ CREATE TABLE [dbo].[MerchantProductMapping] (
     [MOQ] int NULL,
     [SaleType] nvarchar(20) NULL,
     [IsActive] bit NULL,
-    [CreatedAt] datetime NULL
+    [CreatedAt] datetime NULL,
+    [MappingID] int NOT NULL
 );
 
 
@@ -343,7 +356,21 @@ CREATE TABLE [dbo].[Merchants] (
     [MerchantType] nvarchar(20) NOT NULL,
     [ContactInfo] nvarchar(300) NULL,
     [IsActive] bit NOT NULL,
-    [CreatedAt] datetime NULL
+    [CreatedAt] datetime NULL,
+    [SellerMerchantID] int NULL,
+    [BuyerMerchantID] int NULL,
+    [TransactionID] int NULL,
+    [ProductID] int NULL
+);
+
+
+-- =============================================
+-- Table: [dbo].[MerchantTransactions]
+-- =============================================
+CREATE TABLE [dbo].[MerchantTransactions] (
+    [MerchantID] int NOT NULL,
+    [Role] nvarchar(10) NOT NULL,
+    [TransactionID] int NOT NULL
 );
 
 
@@ -352,7 +379,7 @@ CREATE TABLE [dbo].[Merchants] (
 -- =============================================
 CREATE TABLE [dbo].[Payments] (
     [PaymentID] int NOT NULL,
-    [TransactionID] int NOT NULL,
+    [TransactionID] int NULL,
     [MerchantType] nvarchar(50) NOT NULL,
     [MerchantID] int NOT NULL,
     [Amount] decimal(18,2) NOT NULL,
@@ -551,17 +578,6 @@ CREATE TABLE [dbo].[SupportTickets] (
 
 
 -- =============================================
--- Table: [dbo].[SymbolsColors]
--- =============================================
-CREATE TABLE [dbo].[SymbolsColors] (
-    [Id] int NOT NULL,
-    [Symbol] nvarchar(10) NOT NULL,
-    [Meaning] nvarchar(100) NOT NULL,
-    [Category] nvarchar(50) NULL
-);
-
-
--- =============================================
 -- Table: [dbo].[sysdiagrams]
 -- =============================================
 CREATE TABLE [dbo].[sysdiagrams] (
@@ -629,14 +645,15 @@ CREATE TABLE [dbo].[TransactionItems] (
 -- =============================================
 CREATE TABLE [dbo].[Transactions] (
     [TransactionID] int NOT NULL,
-    [SellerMerchantID] int NOT NULL,
+    [SellerMerchantID] int NULL,
     [BuyerMerchantID] int NULL,
     [GuestCustomerName] nvarchar(150) NULL,
     [GuestCustomerPhone] varchar(20) NULL,
     [TransactionType] nvarchar(20) NOT NULL,
     [TotalAmount] decimal(10,2) NOT NULL,
     [Status] nvarchar(20) NOT NULL,
-    [TransactionDate] datetime NULL
+    [TransactionDate] datetime NULL,
+    [MerchantID] int NOT NULL
 );
 
 
@@ -650,7 +667,9 @@ CREATE TABLE [dbo].[Users] (
     [PasswordHash] nvarchar(200) NOT NULL,
     [CreatedAt] datetime NULL,
     [Status] nvarchar(50) NULL,
-    [Notes] nvarchar(250) NULL
+    [Notes] nvarchar(250) NULL,
+    [TransactionID] int NULL,
+    [UserRoleID] int NULL
 );
 
 
@@ -658,6 +677,7 @@ CREATE TABLE [dbo].[Users] (
 -- Table: [dbo].[UsersData]
 -- =============================================
 CREATE TABLE [dbo].[UsersData] (
+    [UsersDataID] int NOT NULL,
     [UserID] int NOT NULL,
     [ProfileID] int NOT NULL,
     [Facebook] nvarchar(200) NULL,
@@ -714,4 +734,4 @@ CREATE TABLE [dbo].[WalletTransactions] (
 
 
 
-Completion time: 2026-09-01T16:38:31.0010762+03:00
+Completion time: 2026-09-06T19:48:24.5414127+03:00
