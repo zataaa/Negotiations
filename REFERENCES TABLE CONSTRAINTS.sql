@@ -385,20 +385,6 @@ ALTER TABLE [dbo].[Ledger] ADD CONSTRAINT [PK__Ledger__AE70E0AF490499BC] PRIMARY
 
 -- =============================================
 -- Table: [dbo].[MerchantProductMapping]
--- Constraint: [FK_MerchantProductMapping_Products] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [FK_MerchantProductMapping_Products] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ProductID]);
-
-
--- =============================================
--- Table: [dbo].[MerchantProductMapping]
--- Constraint: [FK_MerchantProductMapping_TransactionItems] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [FK_MerchantProductMapping_TransactionItems] FOREIGN KEY ([MappingID]) REFERENCES [dbo].[TransactionItems] ([MappingID]);
-
-
--- =============================================
--- Table: [dbo].[MerchantProductMapping]
 -- Constraint: [PK_MerchantProductMapping] (PRIMARY KEY)
 -- =============================================
 ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [PK_MerchantProductMapping] PRIMARY KEY ([MappingID]);
@@ -406,30 +392,9 @@ ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [PK_MerchantProductMap
 
 -- =============================================
 -- Table: [dbo].[Merchants]
--- Constraint: [FK_MerchantProductMapping_Product] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[Merchants] ADD CONSTRAINT [FK_MerchantProductMapping_Product] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ProductID]);
-
-
--- =============================================
--- Table: [dbo].[Merchants]
 -- Constraint: [PK_Merchants] (PRIMARY KEY)
 -- =============================================
 ALTER TABLE [dbo].[Merchants] ADD CONSTRAINT [PK_Merchants] PRIMARY KEY ([MerchantID]);
-
-
--- =============================================
--- Table: [dbo].[MerchantTransactions]
--- Constraint: [FK_MT_Merchant] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MT_Merchant] FOREIGN KEY ([MerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
-
-
--- =============================================
--- Table: [dbo].[MerchantTransactions]
--- Constraint: [FK_TM_Transaction] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_TM_Transaction] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -511,13 +476,6 @@ ALTER TABLE [dbo].[Products] ADD CONSTRAINT [FK_Products_Categories] FOREIGN KEY
 
 -- =============================================
 -- Table: [dbo].[Products]
--- Constraint: [FK_Products_OwnerMerchant] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[Products] ADD CONSTRAINT [FK_Products_OwnerMerchant] FOREIGN KEY ([OwnerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
-
-
--- =============================================
--- Table: [dbo].[Products]
 -- Constraint: [PK__Products__B40CC6EDE88DC906] (PRIMARY KEY)
 -- =============================================
 ALTER TABLE [dbo].[Products] ADD CONSTRAINT [PK__Products__B40CC6EDE88DC906] PRIMARY KEY ([ProductID]);
@@ -528,13 +486,6 @@ ALTER TABLE [dbo].[Products] ADD CONSTRAINT [PK__Products__B40CC6EDE88DC906] PRI
 -- Constraint: [FK_Refunds_Payments] (FOREIGN KEY)
 -- =============================================
 ALTER TABLE [dbo].[Refunds] ADD CONSTRAINT [FK_Refunds_Payments] FOREIGN KEY ([PaymentID]) REFERENCES [dbo].[Payments] ([PaymentID]);
-
-
--- =============================================
--- Table: [dbo].[Refunds]
--- Constraint: [PK__Refunds__725AB90049438BE2] (PRIMARY KEY)
--- =============================================
-ALTER TABLE [dbo].[Refunds] ADD CONSTRAINT [PK__Refunds__725AB90049438BE2] PRIMARY KEY ([RefundID]);
 
 
 -- =============================================
@@ -700,6 +651,13 @@ ALTER TABLE [dbo].[TicketLogs] ADD CONSTRAINT [PK__TicketLo__5E5499A8EDF96B9D] P
 
 -- =============================================
 -- Table: [dbo].[TransactionItems]
+-- Constraint: [FK_TransactionItems_MerchantProductMapping] (FOREIGN KEY)
+-- =============================================
+ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_MerchantProductMapping] FOREIGN KEY ([MappingID]) REFERENCES [dbo].[MerchantProductMapping] ([MappingID]);
+
+
+-- =============================================
+-- Table: [dbo].[TransactionItems]
 -- Constraint: [FK_TransactionItems_Transactions] (FOREIGN KEY)
 -- =============================================
 ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
@@ -777,20 +735,6 @@ ALTER TABLE [dbo].[UsersData] ADD CONSTRAINT [PK__UsersDat__ED49528BC8A7BB1F] PR
 
 -- =============================================
 -- Table: [dbo].[UserSessions]
--- Constraint: [FK_UserSessions_UserID] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [FK_UserSessions_UserID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
-
-
--- =============================================
--- Table: [dbo].[UserSessions]
--- Constraint: [FK_UserSessions_Users] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [FK_UserSessions_Users] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
-
-
--- =============================================
--- Table: [dbo].[UserSessions]
 -- Constraint: [PK__UserSess__C9F4927098B594CD] (PRIMARY KEY)
 -- =============================================
 ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [PK__UserSess__C9F4927098B594CD] PRIMARY KEY ([SessionID]);
@@ -805,9 +749,16 @@ ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [FK_UsersRoles_Roles] FOREIGN KEY 
 
 -- =============================================
 -- Table: [dbo].[UsersRoles]
--- Constraint: [PK__UsersRol__725AB900E661B472] (PRIMARY KEY)
+-- Constraint: [FK_UsersRoles_Users] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [PK__UsersRol__725AB900E661B472] PRIMARY KEY ([RefundID]);
+ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [FK_UsersRoles_Users] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
+
+
+-- =============================================
+-- Table: [dbo].[UsersRoles]
+-- Constraint: [PK__UsersRol__AF27604F6CED457E] (PRIMARY KEY)
+-- =============================================
+ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [PK__UsersRol__AF27604F6CED457E] PRIMARY KEY ([UserID], [RoleID]);
 
 
 -- =============================================
@@ -825,4 +776,4 @@ ALTER TABLE [dbo].[WalletTransactions] ADD CONSTRAINT [FK_WalletTransactions_Dig
 
 
 
-Completion time: 2026-09-06T04:44:44.6754070+03:00
+Completion time: 2026-09-06T16:28:33.1219635+03:00
