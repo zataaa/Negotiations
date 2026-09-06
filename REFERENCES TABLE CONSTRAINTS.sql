@@ -1,12 +1,5 @@
 -- =============================================
 -- Table: [dbo].[AuditLogs]
--- Constraint: [FK_AuditLogs_AuthenticationLogs] (FOREIGN KEY)
--- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AuthenticationLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[AuthenticationLogs] ([LogID]);
-
-
--- =============================================
--- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_AvailabilityLogs] (FOREIGN KEY)
 -- =============================================
 ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AvailabilityLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[AvailabilityLogs] ([LogID]);
@@ -17,6 +10,13 @@ ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AvailabilityLogs] FOR
 -- Constraint: [FK_AuditLogs_CapacityLogs] (FOREIGN KEY)
 -- =============================================
 ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_CapacityLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[CapacityLogs] ([LogID]);
+
+
+-- =============================================
+-- Table: [dbo].[AuditLogs]
+-- Constraint: [FK_AuditLogs_AuthenticationLogs] (FOREIGN KEY)
+-- =============================================
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AuthenticationLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[AuthenticationLogs] ([LogID]);
 
 
 -- =============================================
@@ -406,6 +406,13 @@ ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MerchantTransactions
 
 -- =============================================
 -- Table: [dbo].[MerchantTransactions]
+-- Constraint: [FK_MerchantTransactions_Merchant] (FOREIGN KEY)
+-- =============================================
+ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MerchantTransactions_Merchant] FOREIGN KEY ([MerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
+
+
+-- =============================================
+-- Table: [dbo].[MerchantTransactions]
 -- Constraint: [PK_MerchantTransactions] (PRIMARY KEY)
 -- =============================================
 ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [PK_MerchantTransactions] PRIMARY KEY ([MerchantID]);
@@ -658,6 +665,13 @@ ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Merchan
 
 -- =============================================
 -- Table: [dbo].[TransactionItems]
+-- Constraint: [FK_TransactionItems_MPM] (FOREIGN KEY)
+-- =============================================
+ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_MPM] FOREIGN KEY ([MappingID]) REFERENCES [dbo].[MerchantProductMapping] ([MappingID]);
+
+
+-- =============================================
+-- Table: [dbo].[TransactionItems]
 -- Constraint: [FK_TransactionItems_Transactions] (FOREIGN KEY)
 -- =============================================
 ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
@@ -686,16 +700,16 @@ ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [UQ_TransactionItems_Mapping
 
 -- =============================================
 -- Table: [dbo].[Transactions]
--- Constraint: [FK_Transactions_SellerMerchant] (FOREIGN KEY)
+-- Constraint: [FK_Transactions_BuyerMerchant] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_SellerMerchant] FOREIGN KEY ([SellerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
+ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_BuyerMerchant] FOREIGN KEY ([BuyerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
 
 
 -- =============================================
 -- Table: [dbo].[Transactions]
--- Constraint: [FK_Transactions_BuyerMerchant] (FOREIGN KEY)
+-- Constraint: [FK_Transactions_SellerMerchant] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_BuyerMerchant] FOREIGN KEY ([BuyerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
+ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_SellerMerchant] FOREIGN KEY ([SellerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
 
 
 -- =============================================
@@ -776,4 +790,4 @@ ALTER TABLE [dbo].[WalletTransactions] ADD CONSTRAINT [FK_WalletTransactions_Dig
 
 
 
-Completion time: 2026-09-06T16:28:33.1219635+03:00
+Completion time: 2026-09-06T19:30:28.9072975+03:00
