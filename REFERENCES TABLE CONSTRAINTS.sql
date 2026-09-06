@@ -1,71 +1,71 @@
-﻿-- =============================================
+-- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_AuthenticationLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AuthenticationLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AuthenticationLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[AuthenticationLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_AvailabilityLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AvailabilityLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_AvailabilityLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[AvailabilityLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_CapacityLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_CapacityLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_CapacityLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[CapacityLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_ChangeLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ChangeLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ChangeLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[ChangeLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_ConfigLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ConfigLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ConfigLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[ConfigLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_ContinuityLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ContinuityLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ContinuityLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[ContinuityLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_ReleaseLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ReleaseLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ReleaseLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[ReleaseLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_ReportLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ReportLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ReportLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[ReportLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_TicketLogs] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_TicketLogs] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_TicketLogs] FOREIGN KEY ([LogID]) REFERENCES [dbo].[TicketLogs] ([LogID]);
 
 
 -- =============================================
 -- Table: [dbo].[AuditLogs]
 -- Constraint: [FK_AuditLogs_ProblemLogs_] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ProblemLogs_] FOREIGN KEY ([LogID]);
+ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [FK_AuditLogs_ProblemLogs_] FOREIGN KEY ([LogID]) REFERENCES [dbo].[ProblemLogs] ([LogID]);
 
 
 -- =============================================
@@ -79,7 +79,7 @@ ALTER TABLE [dbo].[AuditLogs] ADD CONSTRAINT [PK__AuditLog__5E5499A80918CFC3] PR
 -- Table: [dbo].[AuthenticationLogs]
 -- Constraint: [FK_AuthenticationLogs_UserID] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AuthenticationLogs] ADD CONSTRAINT [FK_AuthenticationLogs_UserID] FOREIGN KEY ([UserID]);
+ALTER TABLE [dbo].[AuthenticationLogs] ADD CONSTRAINT [FK_AuthenticationLogs_UserID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
 
 
 -- =============================================
@@ -93,7 +93,7 @@ ALTER TABLE [dbo].[AuthenticationLogs] ADD CONSTRAINT [PK__Authenti__5E5499A83A2
 -- Table: [dbo].[AvailabilityLogs]
 -- Constraint: [FK__Availabil__Recor__1E3A7A34] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AvailabilityLogs] ADD CONSTRAINT [FK__Availabil__Recor__1E3A7A34] FOREIGN KEY ([RecordID]);
+ALTER TABLE [dbo].[AvailabilityLogs] ADD CONSTRAINT [FK__Availabil__Recor__1E3A7A34] FOREIGN KEY ([RecordID]) REFERENCES [dbo].[AvailabilityRecords] ([RecordID]);
 
 
 -- =============================================
@@ -107,7 +107,7 @@ ALTER TABLE [dbo].[AvailabilityLogs] ADD CONSTRAINT [PK__Availabi__5E5499A8D9BDE
 -- Table: [dbo].[AvailabilityRecords]
 -- Constraint: [FK__Availabil__Targe__1A69E950] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[AvailabilityRecords] ADD CONSTRAINT [FK__Availabil__Targe__1A69E950] FOREIGN KEY ([TargetID]);
+ALTER TABLE [dbo].[AvailabilityRecords] ADD CONSTRAINT [FK__Availabil__Targe__1A69E950] FOREIGN KEY ([TargetID]) REFERENCES [dbo].[AvailabilityTargets] ([TargetID]);
 
 
 -- =============================================
@@ -128,7 +128,7 @@ ALTER TABLE [dbo].[AvailabilityTargets] ADD CONSTRAINT [PK__Availabi__2B1F0FB613
 -- Table: [dbo].[CapacityLogs]
 -- Constraint: [FK__CapacityL__Recor__30592A6F] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[CapacityLogs] ADD CONSTRAINT [FK__CapacityL__Recor__30592A6F] FOREIGN KEY ([RecordID]);
+ALTER TABLE [dbo].[CapacityLogs] ADD CONSTRAINT [FK__CapacityL__Recor__30592A6F] FOREIGN KEY ([RecordID]) REFERENCES [dbo].[CapacityRecords] ([RecordID]);
 
 
 -- =============================================
@@ -142,7 +142,7 @@ ALTER TABLE [dbo].[CapacityLogs] ADD CONSTRAINT [PK__Capacity__5E5499A8369603CB]
 -- Table: [dbo].[CapacityRecords]
 -- Constraint: [FK__CapacityR__Targe__2C88998B] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[CapacityRecords] ADD CONSTRAINT [FK__CapacityR__Targe__2C88998B] FOREIGN KEY ([TargetID]);
+ALTER TABLE [dbo].[CapacityRecords] ADD CONSTRAINT [FK__CapacityR__Targe__2C88998B] FOREIGN KEY ([TargetID]) REFERENCES [dbo].[CapacityTargets] ([TargetID]);
 
 
 -- =============================================
@@ -163,7 +163,7 @@ ALTER TABLE [dbo].[CapacityTargets] ADD CONSTRAINT [PK__Capacity__2B1F0FB6DFA21F
 -- Table: [dbo].[CashOnDelivery]
 -- Constraint: [FK_CashOnDelivery_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[CashOnDelivery] ADD CONSTRAINT [FK_CashOnDelivery_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[CashOnDelivery] ADD CONSTRAINT [FK_CashOnDelivery_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -184,7 +184,7 @@ ALTER TABLE [dbo].[Categories] ADD CONSTRAINT [PK__Categori__19093A2B84B20B80] P
 -- Table: [dbo].[ChangeApprovals]
 -- Constraint: [FK__ChangeApp__Reque__43A1090D] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ChangeApprovals] ADD CONSTRAINT [FK__ChangeApp__Reque__43A1090D] FOREIGN KEY ([RequestID]);
+ALTER TABLE [dbo].[ChangeApprovals] ADD CONSTRAINT [FK__ChangeApp__Reque__43A1090D] FOREIGN KEY ([RequestID]) REFERENCES [dbo].[ChangeRequests] ([RequestID]);
 
 
 -- =============================================
@@ -198,7 +198,7 @@ ALTER TABLE [dbo].[ChangeApprovals] ADD CONSTRAINT [PK__ChangeAp__328477D46C5B3F
 -- Table: [dbo].[ChangeLogs]
 -- Constraint: [FK__ChangeLog__Reque__4865BE2A] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ChangeLogs] ADD CONSTRAINT [FK__ChangeLog__Reque__4865BE2A] FOREIGN KEY ([RequestID]);
+ALTER TABLE [dbo].[ChangeLogs] ADD CONSTRAINT [FK__ChangeLog__Reque__4865BE2A] FOREIGN KEY ([RequestID]) REFERENCES [dbo].[ChangeRequests] ([RequestID]);
 
 
 -- =============================================
@@ -219,7 +219,7 @@ ALTER TABLE [dbo].[ChangeRequests] ADD CONSTRAINT [PK__ChangeRe__33A8519A3141D42
 -- Table: [dbo].[ConfigChanges]
 -- Constraint: [FK__ConfigCha__Confi__762C88DA] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ConfigChanges] ADD CONSTRAINT [FK__ConfigCha__Confi__762C88DA] FOREIGN KEY ([ConfigID]);
+ALTER TABLE [dbo].[ConfigChanges] ADD CONSTRAINT [FK__ConfigCha__Confi__762C88DA] FOREIGN KEY ([ConfigID]) REFERENCES [dbo].[ConfigItems] ([ConfigID]);
 
 
 -- =============================================
@@ -240,7 +240,7 @@ ALTER TABLE [dbo].[ConfigItems] ADD CONSTRAINT [PK__ConfigIt__C3BC333C08542607] 
 -- Table: [dbo].[ConfigLogs]
 -- Constraint: [FK__ConfigLog__Confi__7AF13DF7] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ConfigLogs] ADD CONSTRAINT [FK__ConfigLog__Confi__7AF13DF7] FOREIGN KEY ([ConfigID]);
+ALTER TABLE [dbo].[ConfigLogs] ADD CONSTRAINT [FK__ConfigLog__Confi__7AF13DF7] FOREIGN KEY ([ConfigID]) REFERENCES [dbo].[ConfigItems] ([ConfigID]);
 
 
 -- =============================================
@@ -254,7 +254,7 @@ ALTER TABLE [dbo].[ConfigLogs] ADD CONSTRAINT [PK__ConfigLo__5E5499A83A3C9C5C] P
 -- Table: [dbo].[ContinuityLogs]
 -- Constraint: [FK__Continuit__PlanI__4277DAAA] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ContinuityLogs] ADD CONSTRAINT [FK__Continuit__PlanI__4277DAAA] FOREIGN KEY ([PlanID]);
+ALTER TABLE [dbo].[ContinuityLogs] ADD CONSTRAINT [FK__Continuit__PlanI__4277DAAA] FOREIGN KEY ([PlanID]) REFERENCES [dbo].[ContinuityPlans] ([PlanID]);
 
 
 -- =============================================
@@ -275,7 +275,7 @@ ALTER TABLE [dbo].[ContinuityPlans] ADD CONSTRAINT [PK__Continui__755C22D71A22CE
 -- Table: [dbo].[ContinuityTests]
 -- Constraint: [FK__Continuit__PlanI__3DB3258D] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ContinuityTests] ADD CONSTRAINT [FK__Continuit__PlanI__3DB3258D] FOREIGN KEY ([PlanID]);
+ALTER TABLE [dbo].[ContinuityTests] ADD CONSTRAINT [FK__Continuit__PlanI__3DB3258D] FOREIGN KEY ([PlanID]) REFERENCES [dbo].[ContinuityPlans] ([PlanID]);
 
 
 -- =============================================
@@ -289,7 +289,7 @@ ALTER TABLE [dbo].[ContinuityTests] ADD CONSTRAINT [PK__Continui__8CC331000DFEB1
 -- Table: [dbo].[DigitalWallets]
 -- Constraint: [FK_DigitalWallets_Users] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[DigitalWallets] ADD CONSTRAINT [FK_DigitalWallets_Users] FOREIGN KEY ([UserID]);
+ALTER TABLE [dbo].[DigitalWallets] ADD CONSTRAINT [FK_DigitalWallets_Users] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
 
 
 -- =============================================
@@ -303,7 +303,7 @@ ALTER TABLE [dbo].[DigitalWallets] ADD CONSTRAINT [PK__DigitalW__84D4F92E0B864BF
 -- Table: [dbo].[ForecastingHistory]
 -- Constraint: [FK_ForecastingHistory_ForecastingReports] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ForecastingHistory] ADD CONSTRAINT [FK_ForecastingHistory_ForecastingReports] FOREIGN KEY ([ForecastID]);
+ALTER TABLE [dbo].[ForecastingHistory] ADD CONSTRAINT [FK_ForecastingHistory_ForecastingReports] FOREIGN KEY ([ForecastID]) REFERENCES [dbo].[ForecastingReports] ([ForecastID]);
 
 
 -- =============================================
@@ -317,7 +317,7 @@ ALTER TABLE [dbo].[ForecastingHistory] ADD CONSTRAINT [PK__Forecast__4D7B4ADD505
 -- Table: [dbo].[ForecastingReports]
 -- Constraint: [FK_ForecastingReports_Products] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ForecastingReports] ADD CONSTRAINT [FK_ForecastingReports_Products] FOREIGN KEY ([ProductID]);
+ALTER TABLE [dbo].[ForecastingReports] ADD CONSTRAINT [FK_ForecastingReports_Products] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ProductID]);
 
 
 -- =============================================
@@ -331,7 +331,7 @@ ALTER TABLE [dbo].[ForecastingReports] ADD CONSTRAINT [PK__Forecast__7F2744588F0
 -- Table: [dbo].[IncidentReports]
 -- Constraint: [FK__IncidentR__TypeI__251C81ED] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[IncidentReports] ADD CONSTRAINT [FK__IncidentR__TypeI__251C81ED] FOREIGN KEY ([TypeID]);
+ALTER TABLE [dbo].[IncidentReports] ADD CONSTRAINT [FK__IncidentR__TypeI__251C81ED] FOREIGN KEY ([TypeID]) REFERENCES [dbo].[IncidentTypes] ([TypeID]);
 
 
 -- =============================================
@@ -352,7 +352,7 @@ ALTER TABLE [dbo].[IncidentTypes] ADD CONSTRAINT [PK__Incident__516F03959377C4B8
 -- Table: [dbo].[Invoices]
 -- Constraint: [FK_Invoices_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Invoices] ADD CONSTRAINT [FK_Invoices_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[Invoices] ADD CONSTRAINT [FK_Invoices_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -373,7 +373,7 @@ ALTER TABLE [dbo].[Invoices] ADD CONSTRAINT [UQ__Invoices__D776E981BE9E3D7B] UNI
 -- Table: [dbo].[Ledger]
 -- Constraint: [FK_Ledger_Transaction] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Ledger] ADD CONSTRAINT [FK_Ledger_Transaction] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[Ledger] ADD CONSTRAINT [FK_Ledger_Transaction] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -387,14 +387,14 @@ ALTER TABLE [dbo].[Ledger] ADD CONSTRAINT [PK__Ledger__AE70E0AF490499BC] PRIMARY
 -- Table: [dbo].[MerchantProductMapping]
 -- Constraint: [FK_MerchantProductMapping_Products] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [FK_MerchantProductMapping_Products] FOREIGN KEY ([ProductID]);
+ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [FK_MerchantProductMapping_Products] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ProductID]);
 
 
 -- =============================================
 -- Table: [dbo].[MerchantProductMapping]
 -- Constraint: [FK_MerchantProductMapping_TransactionItems] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [FK_MerchantProductMapping_TransactionItems] FOREIGN KEY ([MappingID]);
+ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [FK_MerchantProductMapping_TransactionItems] FOREIGN KEY ([MappingID]) REFERENCES [dbo].[TransactionItems] ([MappingID]);
 
 
 -- =============================================
@@ -408,7 +408,7 @@ ALTER TABLE [dbo].[MerchantProductMapping] ADD CONSTRAINT [PK_MerchantProductMap
 -- Table: [dbo].[Merchants]
 -- Constraint: [FK_MerchantProductMapping_Product] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Merchants] ADD CONSTRAINT [FK_MerchantProductMapping_Product] FOREIGN KEY ([ProductID]);
+ALTER TABLE [dbo].[Merchants] ADD CONSTRAINT [FK_MerchantProductMapping_Product] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ProductID]);
 
 
 -- =============================================
@@ -422,21 +422,21 @@ ALTER TABLE [dbo].[Merchants] ADD CONSTRAINT [PK_Merchants] PRIMARY KEY ([Mercha
 -- Table: [dbo].[MerchantTransactions]
 -- Constraint: [FK_MT_Merchant] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MT_Merchant] FOREIGN KEY ([MerchantID]);
+ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MT_Merchant] FOREIGN KEY ([MerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
 
 
 -- =============================================
 -- Table: [dbo].[MerchantTransactions]
 -- Constraint: [FK_TM_Transaction] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_TM_Transaction] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_TM_Transaction] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
 -- Table: [dbo].[MerchantTransactions]
 -- Constraint: [FK_MerchantTransactions_Transaction] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MerchantTransactions_Transaction] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [FK_MerchantTransactions_Transaction] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -450,7 +450,7 @@ ALTER TABLE [dbo].[MerchantTransactions] ADD CONSTRAINT [PK_MerchantTransactions
 -- Table: [dbo].[Payments]
 -- Constraint: [FK_Payments_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Payments] ADD CONSTRAINT [FK_Payments_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[Payments] ADD CONSTRAINT [FK_Payments_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -471,7 +471,7 @@ ALTER TABLE [dbo].[ProblemCatalog] ADD CONSTRAINT [PK__ProblemC__5CED516A100B163
 -- Table: [dbo].[ProblemLogs]
 -- Constraint: [FK_ProblemLogs_ProblemCatalog] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ProblemLogs] ADD CONSTRAINT [FK_ProblemLogs_ProblemCatalog] FOREIGN KEY ([ProblemID]);
+ALTER TABLE [dbo].[ProblemLogs] ADD CONSTRAINT [FK_ProblemLogs_ProblemCatalog] FOREIGN KEY ([ProblemID]) REFERENCES [dbo].[ProblemCatalog] ([ProblemID]);
 
 
 -- =============================================
@@ -485,14 +485,14 @@ ALTER TABLE [dbo].[ProblemLogs] ADD CONSTRAINT [PK_ProblemLogs] PRIMARY KEY ([Lo
 -- Table: [dbo].[ProblemRecords]
 -- Constraint: [FK__ProblemRe__Relat__55BFB948] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ProblemRecords] ADD CONSTRAINT [FK__ProblemRe__Relat__55BFB948] FOREIGN KEY ([RelatedIncidentID]);
+ALTER TABLE [dbo].[ProblemRecords] ADD CONSTRAINT [FK__ProblemRe__Relat__55BFB948] FOREIGN KEY ([RelatedIncidentID]) REFERENCES [dbo].[IncidentReports] ([IncidentID]);
 
 
 -- =============================================
 -- Table: [dbo].[ProblemRecords]
 -- Constraint: [FK__ProblemRe__Probl__54CB950F] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ProblemRecords] ADD CONSTRAINT [FK__ProblemRe__Probl__54CB950F] FOREIGN KEY ([ProblemID]);
+ALTER TABLE [dbo].[ProblemRecords] ADD CONSTRAINT [FK__ProblemRe__Probl__54CB950F] FOREIGN KEY ([ProblemID]) REFERENCES [dbo].[ProblemCatalog] ([ProblemID]);
 
 
 -- =============================================
@@ -506,14 +506,14 @@ ALTER TABLE [dbo].[ProblemRecords] ADD CONSTRAINT [PK__ProblemR__FBDF78C92860435
 -- Table: [dbo].[Products]
 -- Constraint: [FK_Products_Categories] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Products] ADD CONSTRAINT [FK_Products_Categories] FOREIGN KEY ([CategoryID]);
+ALTER TABLE [dbo].[Products] ADD CONSTRAINT [FK_Products_Categories] FOREIGN KEY ([CategoryID]) REFERENCES [dbo].[Categories] ([CategoryID]);
 
 
 -- =============================================
 -- Table: [dbo].[Products]
 -- Constraint: [FK_Products_OwnerMerchant] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Products] ADD CONSTRAINT [FK_Products_OwnerMerchant] FOREIGN KEY ([OwnerMerchantID]);
+ALTER TABLE [dbo].[Products] ADD CONSTRAINT [FK_Products_OwnerMerchant] FOREIGN KEY ([OwnerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
 
 
 -- =============================================
@@ -527,7 +527,7 @@ ALTER TABLE [dbo].[Products] ADD CONSTRAINT [PK__Products__B40CC6EDE88DC906] PRI
 -- Table: [dbo].[Refunds]
 -- Constraint: [FK_Refunds_Payments] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Refunds] ADD CONSTRAINT [FK_Refunds_Payments] FOREIGN KEY ([PaymentID]);
+ALTER TABLE [dbo].[Refunds] ADD CONSTRAINT [FK_Refunds_Payments] FOREIGN KEY ([PaymentID]) REFERENCES [dbo].[Payments] ([PaymentID]);
 
 
 -- =============================================
@@ -541,7 +541,7 @@ ALTER TABLE [dbo].[Refunds] ADD CONSTRAINT [PK__Refunds__725AB90049438BE2] PRIMA
 -- Table: [dbo].[ReleaseDeployments]
 -- Constraint: [FK__ReleaseDe__Relea__093F5D4E] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ReleaseDeployments] ADD CONSTRAINT [FK__ReleaseDe__Relea__093F5D4E] FOREIGN KEY ([ReleaseID]);
+ALTER TABLE [dbo].[ReleaseDeployments] ADD CONSTRAINT [FK__ReleaseDe__Relea__093F5D4E] FOREIGN KEY ([ReleaseID]) REFERENCES [dbo].[Releases] ([ReleaseID]);
 
 
 -- =============================================
@@ -555,7 +555,7 @@ ALTER TABLE [dbo].[ReleaseDeployments] ADD CONSTRAINT [PK__ReleaseD__5EF8D717DDB
 -- Table: [dbo].[ReleaseLogs]
 -- Constraint: [FK__ReleaseLo__Relea__0D0FEE32] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ReleaseLogs] ADD CONSTRAINT [FK__ReleaseLo__Relea__0D0FEE32] FOREIGN KEY ([ReleaseID]);
+ALTER TABLE [dbo].[ReleaseLogs] ADD CONSTRAINT [FK__ReleaseLo__Relea__0D0FEE32] FOREIGN KEY ([ReleaseID]) REFERENCES [dbo].[Releases] ([ReleaseID]);
 
 
 -- =============================================
@@ -576,7 +576,7 @@ ALTER TABLE [dbo].[Releases] ADD CONSTRAINT [PK__Releases__5D7A69ED4C2ED9F6] PRI
 -- Table: [dbo].[ReportLogs]
 -- Constraint: [FK__ReportLog__Repor__76EBA2E9] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ReportLogs] ADD CONSTRAINT [FK__ReportLog__Repor__76EBA2E9] FOREIGN KEY ([ReportID]);
+ALTER TABLE [dbo].[ReportLogs] ADD CONSTRAINT [FK__ReportLog__Repor__76EBA2E9] FOREIGN KEY ([ReportID]) REFERENCES [dbo].[Reports] ([ReportID]);
 
 
 -- =============================================
@@ -590,7 +590,7 @@ ALTER TABLE [dbo].[ReportLogs] ADD CONSTRAINT [PK__ReportLo__5E5499A853E0F2E6] P
 -- Table: [dbo].[ReportRuns]
 -- Constraint: [FK__ReportRun__Repor__7226EDCC] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[ReportRuns] ADD CONSTRAINT [FK__ReportRun__Repor__7226EDCC] FOREIGN KEY ([ReportID]);
+ALTER TABLE [dbo].[ReportRuns] ADD CONSTRAINT [FK__ReportRun__Repor__7226EDCC] FOREIGN KEY ([ReportID]) REFERENCES [dbo].[Reports] ([ReportID]);
 
 
 -- =============================================
@@ -618,7 +618,7 @@ ALTER TABLE [dbo].[Roles] ADD CONSTRAINT [PK__Roles__8AFACE3A53ABE0C7] PRIMARY K
 -- Table: [dbo].[Shipping]
 -- Constraint: [FK_Shipping_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Shipping] ADD CONSTRAINT [FK_Shipping_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[Shipping] ADD CONSTRAINT [FK_Shipping_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -639,7 +639,7 @@ ALTER TABLE [dbo].[Shipping] ADD CONSTRAINT [UQ__Shipping__784DB3D9F3CD0A8A] UNI
 -- Table: [dbo].[SupportTickets]
 -- Constraint: [FK__SupportTi__Categ__308E3499] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[SupportTickets] ADD CONSTRAINT [FK__SupportTi__Categ__308E3499] FOREIGN KEY ([CategoryID]);
+ALTER TABLE [dbo].[SupportTickets] ADD CONSTRAINT [FK__SupportTi__Categ__308E3499] FOREIGN KEY ([CategoryID]) REFERENCES [dbo].[TicketCategories] ([CategoryID]);
 
 
 -- =============================================
@@ -667,7 +667,7 @@ ALTER TABLE [dbo].[sysdiagrams] ADD CONSTRAINT [UK_principal_name] UNIQUE ([prin
 -- Table: [dbo].[Taxes]
 -- Constraint: [FK_Taxes_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Taxes] ADD CONSTRAINT [FK_Taxes_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[Taxes] ADD CONSTRAINT [FK_Taxes_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
@@ -688,7 +688,7 @@ ALTER TABLE [dbo].[TicketCategories] ADD CONSTRAINT [PK__TicketCa__19093A2B9975A
 -- Table: [dbo].[TicketLogs]
 -- Constraint: [FK__TicketLog__Ticke__36470DEF] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[TicketLogs] ADD CONSTRAINT [FK__TicketLog__Ticke__36470DEF] FOREIGN KEY ([TicketID]);
+ALTER TABLE [dbo].[TicketLogs] ADD CONSTRAINT [FK__TicketLog__Ticke__36470DEF] FOREIGN KEY ([TicketID]) REFERENCES [dbo].[SupportTickets] ([TicketID]);
 
 
 -- =============================================
@@ -702,14 +702,14 @@ ALTER TABLE [dbo].[TicketLogs] ADD CONSTRAINT [PK__TicketLo__5E5499A8EDF96B9D] P
 -- Table: [dbo].[TransactionItems]
 -- Constraint: [FK_TransactionItems_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
 -- Table: [dbo].[TransactionItems]
 -- Constraint: [FK_TransactionItems_Products] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Products] FOREIGN KEY ([ProductID]);
+ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [FK_TransactionItems_Products] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ProductID]);
 
 
 -- =============================================
@@ -730,14 +730,14 @@ ALTER TABLE [dbo].[TransactionItems] ADD CONSTRAINT [UQ_TransactionItems_Mapping
 -- Table: [dbo].[Transactions]
 -- Constraint: [FK_Transactions_SellerMerchant] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_SellerMerchant] FOREIGN KEY ([SellerMerchantID]);
+ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_SellerMerchant] FOREIGN KEY ([SellerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
 
 
 -- =============================================
 -- Table: [dbo].[Transactions]
 -- Constraint: [FK_Transactions_BuyerMerchant] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_BuyerMerchant] FOREIGN KEY ([BuyerMerchantID]);
+ALTER TABLE [dbo].[Transactions] ADD CONSTRAINT [FK_Transactions_BuyerMerchant] FOREIGN KEY ([BuyerMerchantID]) REFERENCES [dbo].[Merchants] ([MerchantID]);
 
 
 -- =============================================
@@ -765,7 +765,7 @@ ALTER TABLE [dbo].[Users] ADD CONSTRAINT [UQ__Users__A9D10534C975DE60] UNIQUE ([
 -- Table: [dbo].[UsersData]
 -- Constraint: [FK_UsersData_Users] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[UsersData] ADD CONSTRAINT [FK_UsersData_Users] FOREIGN KEY ([UserID]);
+ALTER TABLE [dbo].[UsersData] ADD CONSTRAINT [FK_UsersData_Users] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
 
 
 -- =============================================
@@ -779,14 +779,14 @@ ALTER TABLE [dbo].[UsersData] ADD CONSTRAINT [PK__UsersDat__ED49528BC8A7BB1F] PR
 -- Table: [dbo].[UserSessions]
 -- Constraint: [FK_UserSessions_UserID] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [FK_UserSessions_UserID] FOREIGN KEY ([UserID]);
+ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [FK_UserSessions_UserID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
 
 
 -- =============================================
 -- Table: [dbo].[UserSessions]
 -- Constraint: [FK_UserSessions_Users] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [FK_UserSessions_Users] FOREIGN KEY ([UserID]);
+ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [FK_UserSessions_Users] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([UserID]);
 
 
 -- =============================================
@@ -800,7 +800,7 @@ ALTER TABLE [dbo].[UserSessions] ADD CONSTRAINT [PK__UserSess__C9F4927098B594CD]
 -- Table: [dbo].[UsersRoles]
 -- Constraint: [FK_UsersRoles_Roles] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [FK_UsersRoles_Roles] FOREIGN KEY ([RoleID]);
+ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [FK_UsersRoles_Roles] FOREIGN KEY ([RoleID]) REFERENCES [dbo].[Roles] ([RoleID]);
 
 
 -- =============================================
@@ -814,15 +814,15 @@ ALTER TABLE [dbo].[UsersRoles] ADD CONSTRAINT [PK__UsersRol__725AB900E661B472] P
 -- Table: [dbo].[WalletTransactions]
 -- Constraint: [FK_WalletTransactions_Transactions] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[WalletTransactions] ADD CONSTRAINT [FK_WalletTransactions_Transactions] FOREIGN KEY ([TransactionID]);
+ALTER TABLE [dbo].[WalletTransactions] ADD CONSTRAINT [FK_WalletTransactions_Transactions] FOREIGN KEY ([TransactionID]) REFERENCES [dbo].[Transactions] ([TransactionID]);
 
 
 -- =============================================
 -- Table: [dbo].[WalletTransactions]
 -- Constraint: [FK_WalletTransactions_DigitalWallets] (FOREIGN KEY)
 -- =============================================
-ALTER TABLE [dbo].[WalletTransactions] ADD CONSTRAINT [FK_WalletTransactions_DigitalWallets] FOREIGN KEY ([WalletID]);
+ALTER TABLE [dbo].[WalletTransactions] ADD CONSTRAINT [FK_WalletTransactions_DigitalWallets] FOREIGN KEY ([WalletID]) REFERENCES [dbo].[DigitalWallets] ([WalletID]);
 
 
 
-Completion time: 2026-09-06T04:30:45.3835405+03:00
+Completion time: 2026-09-06T04:44:44.6754070+03:00
